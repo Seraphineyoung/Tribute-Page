@@ -1,0 +1,319 @@
+/* CSS Variable */
+:root {
+  --primary: #ddd;
+  --dark: #013220;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+html {
+  font-size: 100%;
+}
+
+body{
+  font-family: monospace;
+  font-weight: 400;
+  background-color: #fff;
+  line-height: 1.7;
+  box-sizing: border-box;
+  padding: 0.5rem 3rem;
+  margin: 0;
+  font-size: 1.2rem;
+}
+.btn {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 1rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+}
+
+.btn:hover {
+    box-shadow: var(--shadow);
+    background-color: var(--primary);
+    color: #777;
+  }
+
+  .btn1::after{
+     content: "";
+     display: inline-block;
+     height: 100%;
+     width: 100%;
+     border-radius: 10rem;
+     position: absolute;
+     top: 0;
+     left: 0;
+     background-color: var(--primary);
+     z-index: -1;
+     transition: all .9s;
+  }
+
+  .btn1:hover::after {
+    transform: scaleX(3) scaleY(2);
+    opacity: 0;
+  }
+  /* scale is used to increase the size of the pseudo element */
+  /* this makes it fade out */
+
+
+  @keyframes moveInRight {
+      0% {
+          opacity: 0;
+          transform: translateX(-8rem);
+      }
+      80% {
+          transform: translateY(-2rem);
+      }
+      100% {
+          opacity: 1;
+          transform: translate(0);
+      }
+  }
+
+
+img {
+  max-width:100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 1.3rem;
+}
+
+/*Navigation*/
+
+.nav-main ul{
+  display: grid;
+  grid-gap: 1.3rem;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4,1fr);
+}
+
+/* for hand burger menu */
+label {
+    margin: 0 40px 0 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+
+.nav-main a {
+  background-color: var(--primary);
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+.nav-main a:hover {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+/*top container*/
+.top-container {
+  display: grid;
+  grid-gap: 1.3rem;
+  grid-template-areas:
+    'top top top topsidea'
+    'top top top topsideb';
+    /*"topside-A topside-B"*/
+}
+
+.top-side {
+  background-color: var(--primary);
+  height: 14rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.top-side h4 {
+  margin-top: 3rem;
+}
+
+.top {
+  grid-area: top;
+  min-height: 80vh;
+  background-image:linear-gradient(to right bottom,rgba(229,242,229,0.8),rgba(0,128,0,0.8)),
+  url("http://res.cloudinary.com/diz9obyrp/image/upload/v1518729958/Woman.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0%, 100% 76%, 0 100%);
+  position: relative;
+}
+
+.header-write {
+  position: relative;
+  top: 35%;
+  left: 50%;
+  color: var(--light);
+  transform: translate(-50%,-50%);
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+
+.heading-main {
+  font-size: 3rem;
+  letter-spacing: 1rem;
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  margin: 2rem 0 1rem 0;
+}
+
+.heading-sub {
+  display: block;
+  font-size: 1.5rem;
+  letter-spacing: 1rem;
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  margin-bottom: 2rem;
+}
+
+.topsidea {
+  grid-area: topsidea;
+}
+
+.topsideb {
+  grid-area: topsideb;
+}
+
+.main-boxes {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+/* LIFE */
+.life {
+  background-color: var(--primary);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2rem;
+}
+
+.life img {
+  opacity: 0.7;
+  border-radius: 1rem;
+}
+/* random pictures*/
+.photos {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.photos img {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+/*Footer*/
+footer{
+  margin-top: 2rem;
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+
+/* MEDIA QUERIES*/
+@media(max-width: 750px){
+   html {
+  font-size: 85%;
+  }
+  .top-container {
+    grid-template-areas:
+      'top top'
+      'topsidea topsideb';
+  }
+
+  .nav-main ul{
+    grid-template-columns: 1fr;
+  }
+
+  .life {
+    grid-template-columns: 1fr;
+  }
+ .life .btn {
+   display: block;
+   text-align: center;
+ }
+ .top-side .btn {
+   display: block;
+   text-align: center;
+ }
+ .top-side {
+   padding: 2rem;
+ }
+
+}
+
+@media(max-width: 500px){
+   html {
+   font-size: 65%;
+ }
+ body {
+   padding: 0.5rem 1rem;
+ }
+ .heading-main {
+   letter-spacing: 0.5rem;
+   font-size: 2rem;
+ }
+  .top-container {
+    grid-template-areas:
+      'top'
+      'topsidea'
+      'topsideb';
+  }
+  .menu  {
+    display: none;
+    text-align: center;
+    width: 100%;
+
+  }
+  .menu a {
+    display: block;
+    border-bottom: 1px solid #EAEAEB;
+  }
+  .menu ul {
+    margin-top: 7rem;
+  }
+
+  label {
+        display: block;
+        cursor: pointer;
+      }
+
+  #toggle:checked + .menu {
+              display: block;
+          }
+}
